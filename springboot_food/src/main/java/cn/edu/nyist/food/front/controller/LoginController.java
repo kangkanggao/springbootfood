@@ -7,18 +7,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import cn.edu.nyist.food.front.service.BuyerService;
+import cn.edu.nyist.food.common.ValidateController;
+import cn.edu.nyist.food.model.BuyerInfo;
+import cn.edu.nyist.food.service.BuyerInfoService;
 
 @Controller
 @RequestMapping("/front")
 public class LoginController {
-	private BuyerService buyerService;
+	private BuyerInfoService buyerInfoService;
 	/*
 	 * 登录的controller
 	 */
 	
 	@RequestMapping("/toLogin")
-	public String toReg( ) {
+	public String toLogin( ) {
 		
 		return "/front/login";
 	}
@@ -29,13 +31,15 @@ public class LoginController {
 		 *  2.验证码是否正确
 		 */
 		//服务器的验证码
-		String serverVcode="";
+		String serverVcode=(String) session.getAttribute(ValidateController.SERVER_VCODE);
 		//验证码是否正确
 		if(!vcode.equalsIgnoreCase(serverVcode)) {
 			request.setAttribute("msg", "验证码不正确");
+			
+			return "/front/login";
 		}
 		//登录验证
-	    Buyer buyer=  buyerService.findBuyerByNameAndPwd(name,pwd);
+	    BuyerInfo buyer=buyerInfoService.find(name,pwd);
 	    if(buyer!=null)
 	    {
 	    	//登陆成功到主界面
