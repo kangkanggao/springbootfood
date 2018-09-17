@@ -21,46 +21,73 @@
 	rel="stylesheet" type="text/css" />
 
 </head>
-<body>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-12">
-				<ul class="nav">
-					<li class="nav-item"><a class="nav-link active" href="#">Home</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Profile</a>
-					</li>
-					<li class="nav-item"><a class="nav-link disabled" href="#">Messages</a>
-					</li>
-					<li class="nav-item dropdown ml-md-auto"><a
-						class="nav-link dropdown-toggle" href="http://example.com"
-						id="navbarDropdownMenuLink" data-toggle="dropdown">Dropdown
-							link</a>
-						<div class="dropdown-menu dropdown-menu-right"
-							aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="#">Action</a> <a
-								class="dropdown-item" href="#">Another action</a> <a
-								class="dropdown-item" href="#">Something else here</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Separated link</a>
-						</div></li>
-				</ul>
-			</div>
-		</div>
-		<div class="col-md-5">
-			<form role="form">
-				<div class="easyui-layout" style="width: 700px; height: 350px;">
-					<div id="login" data-options="region:'west'" title="登录"
-						style="width: 50%; padding: 10px">
-					
-						
-					</div>
-					<div data-options="region:'center'" title="注册" id="reg">
-					
-					
+<body style="background-color: threedlightshadow;">
+	<div style="padding-left: 40%">
+		<div class="container-fluid auto-center">
+			<div class="row">
+				<div class="col-md-12">
+					<div style="margin-bottom: 10%;"></div>
+					<div class="easyui-layout" style="width:40%; height: 420px;border: solid,black,1px;">
+
+						<!-- 注册栏 -->
+						<div id="p" data-options="region:'center'" title="注册"
+							style="width: 50%; padding: 10px;border: solid,black,1px;">
+
+							<form action="front/reg">
+								<div class="form-group">
+									<label for="exampleInputName">用户名</label> <input type="text"
+										class="form-control" id="exampleInputName"
+										aria-describedby="emailHelp" placeholder="用户名">
+								</div>
+								<div class="form-group">
+									<label for="exampleInputPassword">密码</label> <input
+										type="password" class="form-control" id="exampleInputPassword"
+										placeholder="密码">
+								</div>
+								<div class="form-group">
+									<label for="exampleInputPassword">确认密码</label> <input
+										type="password" class="form-control" id="exampleInputPassword"
+										placeholder="密码">
+								</div>
+								<div class="form-group">
+									<label for="exampleInputVcode">验证码</label> <input type="text"
+										class="form-control" id="exampleInputVcode" maxlength="4">
+								</div>
+								<button type="submit" class="btn btn-primary">注册</button>
+
+							</form>
+						</div>
+
+						<!-- 登录栏 -->
+						<div data-options="region:'east'" title="账户登录"
+							style="border: solid,black,1px; padding: 20px;">
+							<form action="front/login">
+								<div class="form-group">
+									<label for="exampleInputName">用户名</label> <input type="text"
+										class="form-control" id="exampleInputName"
+										aria-describedby="emailHelp" placeholder="用户名">
+								</div>
+								<div class="form-group">
+									<label for="exampleInputPassword">密码</label> <input
+										type="password" class="form-control" id="exampleInputPassword"
+										placeholder="密码">
+								</div>
+								<div class="form-group" >
+									<label for="exampleInputVcode">验证码</label> 
+									<input type="text" class="form-control" id="exampleInputVcode" maxlength="4"
+										style="width: 180px;" >
+									
+								</div>
+								
+								<button type="submit" class="btn btn-primary">登录</button>
+
+							</form>
+
+						</div>
+
 					</div>
 				</div>
-			</form>
+			</div>
 		</div>
 	</div>
 	<script type="text/javascript"
@@ -69,5 +96,9 @@
 		src="resources/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 	<script type="text/javascript"
 		src="resources/bower_components/jeasyui/jquery.easyui.min.js"></script>
+
+	<script type="text/javascript">
+		
+	</script>
 </body>
 </html>
