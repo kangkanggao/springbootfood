@@ -2,17 +2,24 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-    String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()+"/";
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ request.getContextPath() + "/";
 %>
 <html>
 <head>
 <base href="<%=basePath%>">
 <meta charset="UTF-8">
 <!-- 响应式设计 -->
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>登录</title>
 
-<link href="resources/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="resources/bower_components/bootstrap/dist/css/bootstrap.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="resources/bower_components/jeasyui/themes/bootstrap/easyui.css"
+	rel="stylesheet" type="text/css" />
+
 </head>
 <body>
 	<div class="container-fluid">
@@ -40,50 +47,27 @@
 				</ul>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-7"></div>
-			<div class="col-md-5">
-				<form role="form">
-					<div class="form-group">
-
-						<label for="exampleInputEmail1"> Email address </label> <input
-							class="form-control" id="exampleInputEmail1" type="email" />
+		<div class="col-md-5">
+			<form role="form">
+				<div class="easyui-layout" style="width: 700px; height: 350px;">
+					<div id="login" data-options="region:'west'" title="登录"
+						style="width: 50%; padding: 10px">
+					
+						
 					</div>
-					<div class="form-group">
-
-						<label for="exampleInputPassword1"> Password </label> <input
-							class="form-control" id="exampleInputPassword1" type="password" />
+					<div data-options="region:'center'" title="注册" id="reg">
+					
+					
 					</div>
-					<div class="form-group">
-
-						<label for="exampleInputFile"> File input </label> <input
-							class="form-control-file" id="exampleInputFile" type="file" />
-						<p class="help-block">Example block-level help text here.</p>
-					</div>
-					<div class="checkbox">
-
-						<label> <input type="checkbox" /> Check me out
-						</label>
-					</div>
-					<button type="submit" class="btn btn-primary">Submit</button>
-				</form>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<h2>Heading</h2>
-				<p>Donec id elit non mi porta gravida at eget metus. Fusce
-					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-					magna mollis euismod. Donec sed odio dui.</p>
-				<p>
-					<a class="btn" href="#">View details »</a>
-				</p>
-			</div>
+				</div>
+			</form>
 		</div>
 	</div>
-	<script type="text/javascript" src="resources/bower_components/jquery/dist/jquery.js"></script>
-	<script type="text/javascript" src="resources/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-	
+	<script type="text/javascript"
+		src="resources/bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript"
+		src="resources/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script type="text/javascript"
+		src="resources/bower_components/jeasyui/jquery.easyui.min.js"></script>
 </body>
 </html>
