@@ -24,7 +24,7 @@ public class LoginController {
 	}
 	@RequestMapping("/login")
 	public String reg(@RequestParam String name,@RequestParam String pwd,@RequestParam String vcode,HttpServletRequest request,HttpSession session) {
-		/*
+		/*zhang
 		 * 用户登录判断
 		 *  2.验证码是否正确
 		 */
