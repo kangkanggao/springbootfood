@@ -33,11 +33,12 @@
 						<div id="p" data-options="region:'center'" title="注册"
 							style="width: 50%; padding: 10px;border: solid,black,1px;">
 
-							<form action="front/reg" method="post">
+							<form action="front/reg" method="post" >
+							   
 								<div class="form-group">
 									<label for="exampleInputName">用户名</label> <input type="text"
 										class="form-control" id="exampleInputName"
-										aria-describedby="emailHelp" placeholder="用户名" name="name">
+										aria-describedby="emailHelp" placeholder="用户名" name="name" value="">
 								</div>
 								<div class="form-group">
 									<label for="exampleInputPassword">密码</label> <input

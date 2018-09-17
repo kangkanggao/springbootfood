@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,6 +18,7 @@ public class ProductInfo implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	@Id
+	@GeneratedValue
 	private String productId;
 	private String productName;// 名字
 	private BigDecimal productPrice;// 单价
