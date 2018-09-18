@@ -19,7 +19,9 @@
 <link
 	href="resources/bower_components/jeasyui/themes/bootstrap/easyui.css"
 	rel="stylesheet" type="text/css" />
+<!-- 背景图片 -->
 <style type="text/css">
+
 body {                                
 
         overflow: hidden;
