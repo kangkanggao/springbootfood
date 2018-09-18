@@ -3,6 +3,7 @@ package cn.edu.nyist.food.front.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +15,8 @@ import cn.edu.nyist.food.service.BuyerInfoService;
 @Controller
 @RequestMapping("/front")
 public class LoginController {
+	
+	@Autowired
 	private BuyerInfoService buyerInfoService;
 	/*
 	 * 登录的controller
@@ -32,14 +35,18 @@ public class LoginController {
 		 */
 		//服务器的验证码
 		String serverVcode=(String) session.getAttribute(ValidateController.SERVER_VCODE);
+		System.out.println(serverVcode);
 		//验证码是否正确
+		System.out.println(vcode);
 		if(!vcode.equalsIgnoreCase(serverVcode)) {
 			request.setAttribute("msg", "验证码不正确");
-			
+			request.setAttribute("name", name);
 			return "/front/login";
 		}
+		System.out.println("++++++++++++++++++++++++");
 		//登录验证
 	    BuyerInfo buyer=buyerInfoService.find(name,pwd);
+	    System.out.println(buyer);
 	    if(buyer!=null)
 	    {
 	    	//登陆成功到主界面
@@ -47,6 +54,7 @@ public class LoginController {
 	    	return "/front/main";
 	    }else {
 	    	request.setAttribute("msg","用户名或者密码错误");
+	    	request.setAttribute("name", name);
 	    	return "/front/login";
 	    }
 	}

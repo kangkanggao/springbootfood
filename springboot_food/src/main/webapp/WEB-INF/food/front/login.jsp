@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <%
@@ -20,23 +19,40 @@
 <link
 	href="resources/bower_components/jeasyui/themes/bootstrap/easyui.css"
 	rel="stylesheet" type="text/css" />
+<style type="text/css">
+body {                                
 
+        overflow: hidden;
+
+        position: fixed;
+
+        width:100%;
+
+        height:100%;
+
+        background:url(resources/image/1.jpg) no-repeat;
+
+        background-size:cover;
+
+}    
+
+</style>
 </head>
 <body style="background-color: threedlightshadow;">
-	<div style="padding-left: 40%">
+	<div style="padding-left: 40%;" >
 		<div class="container-fluid auto-center">
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-12" style="">
 					<div style="margin-bottom: 10%;"></div>
 					<div class="easyui-layout"
-						style="width: 40%; height: 420px; border: solid, black, 1px;">
+						style="width: 45%; height: 500px; border: solid, black, 1px; ">
 
 						<!-- 注册栏 -->
 						<div id="p" data-options="region:'center'" title="注册"
-							style="width: 50%; padding: 10px; border: solid, black, 1px;">
-							<c:if test="${requestScope.msg!=null }">
+							style="width: 50%; padding: 10px; border: solid, black, 1px;  background-image: url(resources/image/2.jpg);background-size: 100%; ">
+							<c:if test="${requestScope.regmsg!=null }">
 								<div class="alert alert-success" role="alert">
-									${requestScope.msg }</div>
+									${requestScope.regmsg }</div>
 							</c:if>
 							<form action="front/reg" method="post">
 								<div class="form-group">
@@ -57,13 +73,13 @@
 								</div>
 								<div class="form-group">
 									
-									<label for="exampleInputVcode">验证码</label> <input type="text"
-										name="vcode" class="form-control" id="exampleInputVcode"
-										maxlength="4">
-									<div >
-										<img alt="" src="vcode.png" class="validateVcode" title="点击换图">
-											<a class="validateVcode"></a>
-									</div>
+									<div>
+									<label for="vcode">验证码</label> </div>
+									<input type="text"
+										name="vcode" class="form-control" id="exampleInputVcode" 
+										maxlength="4" style="width: 180px; display: inline;">
+										
+									<img alt="" src="vcode.png" class="validateVcode" title="点击换图" style="margin-top: -7px;margin-left: 10px;">
 									
 								</div>
 								<button type="submit" class="btn btn-primary">注册</button>
@@ -72,8 +88,8 @@
 						</div>
 
 						<!-- 登录栏 -->
-						<div data-options="region:'east'" title="账户登录"
-							style="border: solid, black, 1px; padding: 20px;">
+						<div id="lo" data-options="region:'east'" title="账户登录"
+							style="border: solid, black, 1px; padding: 20px; background-image: url(resources/image/2.jpg);background-size: contain;bac">
 							<form action="front/login" method="post">
 								<c:if test="${requestScope.msg!=null }">
 									<div class="alert alert-success" role="alert">
@@ -85,19 +101,19 @@
 										value="${requestScope.name }" aria-describedby="emailHelp"
 										placeholder="用户名">
 								</div>
-								<div class="form-group">
+								<div class="form-group ">
 									<label for="exampleInputPassword">密码</label> <input
 										type="password" class="form-control" id="exampleInputPassword"
 										name="pwd" placeholder="密码">
 								</div>
-								<div class="form-group">
-									<label for="vcode">验证码</label> <input type="text"
-										class="form-control" id="vcode" maxlength="4"
-										name="vocde" style="width: 180px;">
-									<div >
-										<img alt="" src="vcode.png" class="validateVcode" title="点击换图">
-											<a class="validateVcode"></a>
-										</div>
+								<div class="form-group ">
+									<div>
+									<label for="vcode">验证码</label> </div>
+									<input type="text"
+										class="form-control " id="vcode" maxlength="4"
+										name="vcode" style="width: 180px; display: inline;">
+									
+										<img alt="" src="vcode.png" class="validateVcode" title="点击换图" style="margin-top: -7px;margin-left: 10px;">
 									</div>
 
 								<button type="submit" class="btn btn-primary">登录</button>
@@ -120,8 +136,8 @@
 
 	<script type="text/javascript">
 	$(function(){
-		$(".col-sm-4 .validateVcode").click(function(){
-			$(".col-sm-4 .validateVcode").attr("src","vcode.png?t=" + Math.random());
+		$(".validateVcode").click(function(){
+			$(".validateVcode").attr("src","vcode.png?t=" + Math.random());
 		});
 	});
 	</script>

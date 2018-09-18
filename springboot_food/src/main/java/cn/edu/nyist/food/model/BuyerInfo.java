@@ -8,13 +8,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "buyer_info")
+@Table(name = "buyer_user")
 public class BuyerInfo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue
-	private String buyerOpenid;
+	private int id;
 	private String buyerName;
 	private String buyerPwd;
 
@@ -22,12 +22,12 @@ public class BuyerInfo implements Serializable {
 
 	}
 
-	public String getBuyerOpenid() {
-		return buyerOpenid;
+	public int getId() {
+		return id;
 	}
 
-	public void setBuyerOpenid(String buyerOpenid) {
-		this.buyerOpenid = buyerOpenid;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getBuyerName() {
