@@ -14,11 +14,11 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>登录</title>
 
-<link href="resources/bower_components/bootstrap/dist/css/bootstrap.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="resources/bower_components/jeasyui/themes/bootstrap/easyui.css"
-	rel="stylesheet" type="text/css" />
+<link href="resources/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="resources/bower_components/jeasyui/themes/bootstrap/easyui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="resources/bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="resources/bower_components/vue/dist/vue.js"></script>
+<script type="text/javascript" src="/src/main/resources/static/bower_components/axios/dist/axios.js"></script>
 <!-- 背景图片 -->
 <style type="text/css">
 
@@ -46,22 +46,18 @@ body {
 			<div class="row">
 				<div class="col-md-12" style="">
 					<div style="margin-bottom: 10%;"></div>
-					<div class="easyui-layout"
-						style="width: 45%; height: 500px; border: solid, black, 1px; ">
+					<div class="easyui-layout" style="width: 45%; height: 500px; border: solid, black, 1px; ">
 
 						<!-- 注册栏 -->
-						<div id="p" data-options="region:'center'" title="注册"
-							style="width: 50%; padding: 10px; border: solid, black, 1px;  background-image: url(resources/image/2.jpg);background-size: 100%; ">
-							<c:if test="${requestScope.regmsg!=null }">
-								<div class="alert alert-success" role="alert">
-									${requestScope.regmsg }</div>
-							</c:if>
-							<form action="front/reg" method="post">
+						<div id="reg" data-options="region:'center'" title="注册" style="width: 50%; padding: 10px; border: solid, black, 1px;  background-image: url(resources/image/2.jpg);background-size: 100%; ">
+							
+							<div class="alert alert-success" role="alert" id="errorMsg"></div>
+							
+							<form action="front/reg" method="post" id="regForm" >
 								<div class="form-group">
 									<label for="exampleInputName">用户名</label> <input type="text"
-										class="form-control" id="exampleInputName"
-										value="${requestScope.name }" aria-describedby="emailHelp"
-										placeholder="用户名" name="name">
+										class="form-control" id="exampleInputName" aria-describedby="emailHelp"
+										placeholder="用户名" name="name" >
 								</div>
 								<div class="form-group">
 									<label for="exampleInputPassword">密码</label> <input
@@ -81,10 +77,10 @@ body {
 										name="vcode" class="form-control" id="exampleInputVcode" 
 										maxlength="4" style="width: 180px; display: inline;">
 										
-									<img alt="" src="vcode.png" class="validateVcode" title="点击换图" style="margin-top: -7px;margin-left: 10px;">
+									<img alt="" src="vcode.png" class="validateVcode1" title="点击换图" style="margin-top: -7px;margin-left: 10px;">
 									
 								</div>
-								<button type="submit" class="btn btn-primary">注册</button>
+								<button type="submit" class="btn btn-primary" >注册</button>
 
 							</form>
 						</div>
@@ -129,19 +125,19 @@ body {
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript"
-		src="resources/bower_components/jquery/dist/jquery.js"></script>
-	<script type="text/javascript"
-		src="resources/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-	<script type="text/javascript"
-		src="resources/bower_components/jeasyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="resources/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script type="text/javascript" src="resources/bower_components/jeasyui/jquery.easyui.min.js"></script>
 
 	<script type="text/javascript">
 	$(function(){
 		$(".validateVcode").click(function(){
 			$(".validateVcode").attr("src","vcode.png?t=" + Math.random());
 		});
+		$(".validateVcode1").click(function(){
+			$(".validateVcode1").attr("src","vcode.png?t=" + Math.random());
+		});
 	});
+
 	</script>
 </body>
 </html>

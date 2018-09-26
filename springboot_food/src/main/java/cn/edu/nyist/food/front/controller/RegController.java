@@ -6,10 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import cn.edu.nyist.food.common.ValidateController;
+import cn.edu.nyist.food.front.service.BuyerInfoService;
 import cn.edu.nyist.food.model.BuyerInfo;
-import cn.edu.nyist.food.service.BuyerInfoService;
 
 @Controller
 @RequestMapping("/front")
@@ -32,15 +31,16 @@ public class RegController {
 		if (!pwd.equals(secondpwd)) {
 			request.setAttribute("regmsg", "两次输入的密码不符");
 			request.setAttribute("name", name);
-			return "/front/login";
+			return "forward:/front/toLogin";
 		}
 		String serverVcode = (String) request.getSession().getAttribute(ValidateController.SERVER_VCODE);
 		System.out.println(serverVcode+"-----------------------");
 		// 验证码是否正确
 		if (!vcode.equalsIgnoreCase(serverVcode)) {
+			
 			request.setAttribute("regmsg", "验证码不正确");
 			request.setAttribute("name", name);
-			return "/front/login";
+			return "forward:/front/toLogin";
 		}
 		// 用户名是否被注册
 		BuyerInfo buyer = buyerInfoService.findBuyerByName(name);
@@ -51,18 +51,16 @@ public class RegController {
 
 			BuyerInfo buyerInfo2 = buyerInfoService.saveBuyer(buyerInfo);
 			if (buyerInfo2 != null) {
-
 				request.setAttribute("regmsg", "注册成功");
-				return "/front/login";
 			} else {
 				request.setAttribute("regmsg", "注册失败");
 				request.setAttribute("name", name);
 			}
 
 		} else {
-			request.setAttribute("msg", "用户名已存在");
+			request.setAttribute("regmsg", "用户名已存在");
 			request.setAttribute("name", name);
 		}
-		return "/front/login";
+		return "redirect:/front/toLogin";
 	}
 }

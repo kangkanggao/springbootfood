@@ -1,43 +1,44 @@
 package cn.edu.nyist.food.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 /*
- * 商品
+ * 商品类
  * */
 @Entity
-@Table(name = "product_info")
+@Table(name = "product")
 public class ProductInfo implements Serializable {
 
 	
 	private static final long serialVersionUID = 1L;
 	@Id
-	private String productId;
+	@GeneratedValue
+	private Integer productId;
 	private String productName;// 名字
-	private BigDecimal productPrice;// 单价
+	private Double productPrice;// 单价
 	private Integer productStock;// 库存
 	private String productDescription;// 描述
-	private String productIcon;// 图片
-	private Integer productStatus;// 状态 0代表正常 1代表下架
-	private Integer categoryType;// 类目编号
-
+	private String productPhoto;// 图片
+	
+	private Integer productTid;// 类目编号
+	//商品对应的应该对应的商家
+	
+	private int sellerId;
+	
 	public ProductInfo() {
 
 	}
-
-	public String getProductId() {
+	public Integer getProductId() {
 		return productId;
 	}
-
-	public void setProductId(String productId) {
+	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
-
 	public String getProductName() {
 		return productName;
 	}
@@ -46,11 +47,11 @@ public class ProductInfo implements Serializable {
 		this.productName = productName;
 	}
 
-	public BigDecimal getProductPrice() {
+	public Double getProductPrice() {
 		return productPrice;
 	}
 
-	public void setProductPrice(BigDecimal productPrice) {
+	public void setProductPrice(Double productPrice) {
 		this.productPrice = productPrice;
 	}
 
@@ -70,34 +71,36 @@ public class ProductInfo implements Serializable {
 		this.productDescription = productDescription;
 	}
 
-	public String getProductIcon() {
-		return productIcon;
+	public String getProductPhoto() {
+		return productPhoto;
 	}
 
-	public void setProductIcon(String productIcon) {
-		this.productIcon = productIcon;
+	public void setProductPhoto(String productPhoto) {
+		this.productPhoto = productPhoto;
 	}
 
-	public Integer getProductStatus() {
-		return productStatus;
+	public Integer getProductTid() {
+		return productTid;
 	}
 
-	public void setProductStatus(Integer productStatus) {
-		this.productStatus = productStatus;
+	public void setProductTid(Integer productTid) {
+		this.productTid = productTid;
 	}
 
-	public Integer getCategoryType() {
-		return categoryType;
-	}
 
-	public void setCategoryType(Integer categoryType) {
-		this.categoryType = categoryType;
+
+	public int getSellerId() {
+		return sellerId;
+	}
+	public void setSellerId(int sellerId) {
+		this.sellerId = sellerId;
 	}
 	@Override
 	public String toString() {
 		return "ProductInfo [productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice
-				+ ", productStock=" + productStock + ", productDescription=" + productDescription + ", productIcon="
-				+ productIcon + ", productStatus=" + productStatus + ", categoryType=" + categoryType + "]";
+				+ ", productStock=" + productStock + ", productDescription=" + productDescription + ", productPhoto="
+				+ productPhoto + ", productTid=" + productTid + "]";
 	}
+    
 
 }

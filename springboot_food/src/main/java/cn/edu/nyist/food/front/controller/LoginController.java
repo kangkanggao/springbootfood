@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import cn.edu.nyist.food.common.ValidateController;
+import cn.edu.nyist.food.front.service.BuyerInfoService;
 import cn.edu.nyist.food.model.BuyerInfo;
-import cn.edu.nyist.food.service.BuyerInfoService;
 
 @Controller
 @RequestMapping("/front")

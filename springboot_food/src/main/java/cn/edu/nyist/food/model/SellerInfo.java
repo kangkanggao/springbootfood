@@ -3,29 +3,31 @@ package cn.edu.nyist.food.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "seller_info")
+@Table(name = "seller")
 public class SellerInfo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
-	private String id;
+	@GeneratedValue
+	private Integer id;
 	private String username;
 	private String password;
-	private String openid;
+	private Integer isadmin;
 
 	public SellerInfo() {
 
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -45,12 +47,12 @@ public class SellerInfo implements Serializable {
 		this.password = password;
 	}
 
-	public String getOpenid() {
-		return openid;
+	public Integer getIsadmin() {
+		return isadmin;
 	}
 
-	public void setOpenid(String openid) {
-		this.openid = openid;
+	public void setIsadmin(Integer isadmin) {
+		this.isadmin = isadmin;
 	}
 
 }
