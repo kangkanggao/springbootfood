@@ -44,7 +44,7 @@ public class ProductInfoServiceImpl implements ProductInfoService {
 
 	// 分页排序 [根据价格降序排序] **单元测试通过**
 	@Override
-	public Page<ProductInfo> findAllProductInfos(int pageNo, int sellerId, String productName, int productType,
+	public Page<ProductInfo> findAllProductInfos(int pageNo, final int sellerId, final String productName, final int productType,
 			String sortName) {
 		// 根据temp进行升序或者降序判断 0升序 1降序 ,-1不进行排序 ,String sortName默认值为空串
 		Sort sort = null;

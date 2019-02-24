@@ -27,7 +27,7 @@ public class ProductInfoServiceImpl implements ProductInfoService {
 	@Autowired
 	private ProductInfoRepository productInfoRepository;
 	@Override
-	public Page<ProductInfo> findAllProductInfos(int pageNo, String productName, int productType,String sortName,int temp) {
+	public Page<ProductInfo> findAllProductInfos(int pageNo, final String productName, final int productType,String sortName,int temp) {
 		//根据temp进行升序或者降序判断 0升序 1降序 ,-1不进行排序  ,String sortName默认值为空串
 		Sort sort = null;
 		if(temp==0) {

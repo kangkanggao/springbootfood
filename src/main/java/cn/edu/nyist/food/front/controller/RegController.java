@@ -84,7 +84,7 @@ public class RegController {
 
 	@RequestMapping("/sendSMS")
 	@ResponseBody
-	public void sendSMS(@RequestParam String phone, HttpSession session) throws ClientProtocolException, IOException {
+	public void sendSMS(@RequestParam String phone, final HttpSession session) throws ClientProtocolException, IOException {
 		System.out.println(phone);
 		String phoneSMS = SendMessageUtil.SendCode(phone);
 		// System.out.println("-----------||----------"+phoneSMS);

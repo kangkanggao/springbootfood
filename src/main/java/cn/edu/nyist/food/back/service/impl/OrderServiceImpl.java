@@ -26,7 +26,7 @@ public class OrderServiceImpl implements OrderService{
 	private OrderRepository orderRepository;
 	//查找订单 分页 按订单号查询  --todo可能需要排序--
 	@Override
-	public Page<Order> findAllOrders(int pageNo,int sellerId, String buyerName,int orderStatus) {
+	public Page<Order> findAllOrders(int pageNo,final int sellerId, final String buyerName,final int orderStatus) {
 		//先进行订单表的查询，查看订单表中有没有关于此卖家的订单信息，如果没有，则不查询
 		int flag=0;//用来标志这个商家有没有订单业务
 		List<Order> orders = orderRepository.findAll();
