@@ -147,31 +147,31 @@ background-color:#FF0000;
 									  <div class="card" style="padding: 8px;background-color: #f0f8ff;">
 									  
 							<!-- 添加转到购物车的url -->
-									  	<a href="front/productInfoList">
+									  	<a href="front/productInfoList?productType=1">
 									    	<img class="card-img-top" src="resources/image/front/food_001.jpg" alt="Card image cap" title="进店转转" style="height: 200px;">
 									     </a>
 									    <div class="card-body">
-									      <h5 class="card-title">酸辣土豆丝</h5>
+									      <h5 class="card-title">第一类川菜酸辣土豆丝</h5>
 									    </div>
 									   
 									  </div>
 									  
 									   <div class="card" style="padding: 8px;background-color: #f0f8ff;">
-									   <a href="front/productInfoList">
+									   <a href="front/productInfoList?productType=2">
 									    <img class="card-img-top" src="resources/image/front/food_002.jpg" alt="Card image cap" title="进店转转" style="height: 200px;">
 									   </a> 
 									    <div class="card-body">
-									      <h5 class="card-title">黄焖莲菜</h5>
+									      <h5 class="card-title">第二类鲁菜黄焖莲菜</h5>
 									    </div>
 									    
 									  </div>
 									
 									  <div class="card" style="padding: 8px;background-color: #f0f8ff;">
-									  	 <a href="front/productInfoList">
+									  	 <a href="front/productInfoList?productType=3">
 											<img class="card-img-top" src="resources/image/front/food_003.jpg" alt="Card image cap" title="进店转转" style="height: 200px;">
 									    </a>
 									    <div class="card-body">
-									      <h5 class="card-title">大盘鸡</h5>
+									      <h5 class="card-title">第三类豫菜大盘鸡</h5>
 									    </div>
 									   
 									  </div>

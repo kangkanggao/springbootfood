@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +56,21 @@ public class ProductInfoController {
 		// 到商品列表界面
 		return "/front/productList";
 	}
+	// 查找某一项
+		@RequestMapping("/productInfoOne")
+		public String productInfoOne(HttpServletRequest request, HttpServletResponse response,
+				@RequestParam(defaultValue="")String productName) {
+			/*
+			 * 到商家店铺商品展示界面， 不限制条件，查询所有商品
+			 */
 
+			Page<ProductInfo> pageInfo = productInfoService.findOneProductInfo(productName);
+			request.setAttribute("pageInfo", pageInfo);
+			request.setAttribute("productName",productName);
+
+			// 到商品列表界面
+			return "/front/productOne";
+		}
 	// 根据点击加入购物车商品的id，查询，然后到购物车界面
 	
 	@RequestMapping("/shopingCart")
@@ -184,7 +200,7 @@ public class ProductInfoController {
 		while (it.hasNext()) {
 			CartDTO cartDTO = it.next();
 			if (cartDTO.getProductId().equals(id)) {
-				System.out.println("--------=====----" + id);
+				
 				it.remove();
 			}
 		}

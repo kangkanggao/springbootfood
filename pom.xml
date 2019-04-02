@@ -22,7 +22,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.7</java.version>
+		<java.version>1.8</java.version>
 	</properties>
 
 	<dependencies>
@@ -118,11 +118,32 @@
 			<classifier>jdk15</classifier>
 		</dependency>
 	</dependencies>
+<build>
+        <defaultGoal>compile</defaultGoal>
+        <sourceDirectory>src</sourceDirectory>
+        <finalName>springboot-package</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin </artifactId>
+                <configuration>
+                    <fork>true</fork>
+                    <mainClass>cn.edu.nyist.food.SpringbootFoodApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 
-
-	<build>
-		<plugins> <!-- 使用spring boot的maven插件进行打包 -->
+	<!-- <build>
+		<plugins> 使用spring boot的maven插件进行打包
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -133,12 +154,12 @@
 						</goals>
 					</execution>
 				</executions>
-				<configuration> <!-- 是否打出可执行的jar包(仅支持Linux格式) -->
+				<configuration> 是否打出可执行的jar包(仅支持Linux格式)
 					<executable>true</executable>
 				</configuration>
 			</plugin>
 		</plugins>
-	</build>
+	</build> -->
 
 
 

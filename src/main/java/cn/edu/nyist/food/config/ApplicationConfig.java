@@ -6,6 +6,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import cn.edu.nyist.food.back.interceptor.BackInterceptor;
+import cn.edu.nyist.food.front.interceptor.FrontInterceptor;
 
 @Configuration
 public class ApplicationConfig extends WebMvcConfigurerAdapter{
@@ -18,9 +19,10 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter{
 
 	}
 	
-	//配置后端拦截器
+	//配置前后端拦截器
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(new BackInterceptor()).addPathPatterns("/back/**");
+		registry.addInterceptor(new FrontInterceptor()).addPathPatterns("/front/**");
 	}
 }

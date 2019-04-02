@@ -37,7 +37,7 @@ public class ProductInfoServiceImpl implements ProductInfoService {
 			sort=new Sort(Sort.Direction.DESC,sortName);
 		}
 		//进行条件分页 
-		Pageable pageable = new PageRequest(pageNo - 1, PageConstant.PAGE_SIZE,sort);
+		Pageable pageable = new PageRequest(pageNo - 1, PageConstant.FRONT_PAGE_SIZE,sort);
 		return productInfoRepository.findAll(new Specification<ProductInfo>() {
 			@Override
 			public Predicate toPredicate(Root<ProductInfo> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
@@ -64,5 +64,23 @@ public class ProductInfoServiceImpl implements ProductInfoService {
 	@Override
 	public ProductInfo update(ProductInfo productInfo) {	
 		return productInfoRepository.save(productInfo);
+	}
+	@Override
+	public Page<ProductInfo> findOneProductInfo(final String productName) {
+				//进行条件分页 
+				Pageable pageable = new PageRequest(0,10,null);
+				return productInfoRepository.findAll(new Specification<ProductInfo>() {
+					@Override
+					public Predicate toPredicate(Root<ProductInfo> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+						List<Predicate> ls = new ArrayList<Predicate>();
+						if (productName != null && !productName.equals("")) {
+							Predicate p2 = cb.like(root.get("productName").as(String.class), "%" + productName + "%");
+							ls.add(p2);
+						}
+						Predicate[] arr = new Predicate[ls.size()];
+						return cb.and(ls.toArray(arr));
+
+					}
+				}, pageable);
 	}
 }

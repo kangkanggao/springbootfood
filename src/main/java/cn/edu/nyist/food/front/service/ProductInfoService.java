@@ -6,14 +6,20 @@ import org.springframework.transaction.annotation.Transactional;
 import cn.edu.nyist.food.model.ProductInfo;
 
 public interface ProductInfoService {
-	
-	//查找商品
-	@Transactional(readOnly=true)
-	Page<ProductInfo> findAllProductInfos(int pageNo,String productName,int productType,String sortName,int temp);
-    //根据id查找
-	@Transactional(readOnly=true)
+
+	// 查找商品
+	@Transactional(readOnly = true)
+	Page<ProductInfo> findAllProductInfos(int pageNo, String productName, int productType, String sortName, int temp);
+
+	// 模糊查找商品
+	@Transactional(readOnly = true)
+	Page<ProductInfo> findOneProductInfo(String productName);
+
+	// 根据id查找
+	@Transactional(readOnly = true)
 	ProductInfo findById(int productId);
-	//修改商品
+
+	// 修改商品
 	@Transactional
 	ProductInfo update(ProductInfo productInfo);
 }

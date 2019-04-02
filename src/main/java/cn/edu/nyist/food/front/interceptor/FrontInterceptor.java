@@ -1,4 +1,4 @@
-package cn.edu.nyist.food.back.interceptor;
+package cn.edu.nyist.food.front.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,9 +8,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-public class BackInterceptor implements HandlerInterceptor{
-	//private Logger logger=LoggerFactory.getLogger(
-    private Logger logger=LogManager.getLogger(BackInterceptor.class);
+public class FrontInterceptor implements HandlerInterceptor{
+private static Logger logger=LogManager.getLogger(FrontInterceptor.class);
 	@Override
 	public void afterCompletion(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, Exception arg3)
 			throws Exception {
@@ -25,20 +24,18 @@ public class BackInterceptor implements HandlerInterceptor{
 		
 	}
 
-	//配置后端拦截器，若进行后端管理，必须先登录才能处理本店家的业务管理，不能查看其它店家的业务管理
+	//配置前端拦截器
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
-		
 		String requestURI=request.getRequestURI();
-		if(requestURI.contains("/back")) {
-			if (request.getSession().getAttribute("seller") == null) {
+		if(requestURI.contains("/front")) {
+			if (request.getSession().getAttribute("buyer") == null) {
 				if (requestURI.endsWith("/toLogin") || requestURI.endsWith("/login") || requestURI.endsWith("/vcode.png")) {
-                  
 					return true;
 				}
-				logger.info("後端攔截器...");
 				// 如果没有登录，请求其他，我们将先转到登录界面
-				response.sendRedirect(request.getContextPath()+"/back/toLogin");
+				logger.info("執行前端攔截器...");
+				response.sendRedirect(request.getContextPath()+"/front/toLogin");
 				return false;
 			}
 		}

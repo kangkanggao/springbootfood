@@ -29,12 +29,13 @@
 		
 		</ul>
 
-		<form class="form-inline">
-			<input class="form-control mr-sm-2" type="text" />
-			<button class="btn btn-primary my-2 my-sm-0" type="submit">
-				Search</button>&nbsp;&nbsp;
+		<form class="form-inline" action="front/productInfoOne" method="POST">
+			<input class="form-control mr-sm-2" type="text" id="productName" value="${productName }"/>
+			<a  id="pn" href=""><button class="btn btn-primary my-2 my-sm-0" type="button" >
+				搜一搜</button></a>&nbsp;&nbsp;
 				<button type="button" id="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="height: 37px;width:77px">消息</button>
 		</form>
+		
 		<ul class="navbar-nav ml-md-auto">
 			<li class="nav-item active">
 			<c:choose>
@@ -43,7 +44,7 @@
 			</c:when>
 			<c:otherwise>
 			<span style="color: white;">欢迎&ensp;
-					[${buyer.buyerName }]&ensp;登录 </span> <a href="front/exit"
+					[${buyer.buyerName }]&ensp;登录 </span> <a href="front/exit?name=${buyer.buyerName}"
 				style="text-decoration: none; color: white"><span>&nbsp;&nbsp;退出</span></a>
 			</c:otherwise>
 			</c:choose>
@@ -54,6 +55,16 @@
 </nav>
 <!-- Modal -->
 	<script>
+	 $(document).ready(function(){
+	       //点击链接的时候调用
+	      $("#pn").click(function(){
+	    	  var productName = document.getElementById("productName").value;
+	    	 
+	          //设置linkToCart的href的值
+	          $("#pn").attr("href","front/productInfoOne?productName="+productName);
+	         
+	      });
+	    });
    /*  $(document).ready(function(){
         
         //$("#modalDialog").draggable();//为模态对话框添加拖拽
@@ -126,6 +137,7 @@ function clearMessage(){
 </div>
 <!-- --------------------------------------------------------------- -->
 	<script type="text/javascript">
+	       
 		    var websocket = null;
 			function login(){
 				if(${empty buyer.buyerName }){
@@ -135,7 +147,7 @@ function clearMessage(){
 				if('WebSocket' in window){
 					 var sendUser = document.getElementById("sendUser").value;
 					 document.getElementById("sendUser").disabled = true;
-					websocket = new WebSocket("ws://localhost:8080/food/chatDemo/" + sendUser);
+					websocket = new WebSocket("ws://<%=request.getServerName()%>:<%=request.getServerPort()%>/food/chatDemo/"+ sendUser);
 		        }else{
 		              alert('Not support websocket');
 		        }
@@ -156,7 +168,7 @@ function clearMessage(){
 	        	  if(event.data.indexOf("count")>-1){
 	        		  var msg = event.data;
 	        		  var data = msg.split(":");
-	        		 // document.getElementById('count').innerHTML=data[1];
+	        		  document.getElementById('count').innerHTML=data[1];
 	        	  }else{
 	        		  setMessageInnerHTML(event.data);
 	        	  }

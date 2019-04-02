@@ -73,9 +73,10 @@
 		        	<img src="resources/image/ewm.png" style="width: 130px;height: 120px"  class="pic"/>
 		        	<!--a标签负责生成客服链接 -->
 		        	<p>
-		        		<a  href="http://wpa.qq.com/msgrd?v=3&uin=2446053738&site=qq&menu=yes" target="_blank">
+		        		<!-- <a  href="http://wpa.qq.com/msgrd?v=3&uin=2446053738&site=qq&menu=yes" target="_blank">
 		        		    <img src="resources/image/qq.jpg" style="width:30px;height: 30px"  align="absmiddle"/> 在线客服咨询
-		        		</a>
+		        		</a> -->
+		        		牛奶
 		        	</p>
 		        </div>
 		        <!--底部图片 -->
@@ -84,7 +85,7 @@
 		     <!--存放隐藏状态（小图）的div盒子 -->
 		     <div class="hide" style="width:40px;height: 172px;background-color: #FF6666">
 		     <!-- 	<img src="resources/image/smallbj.png" style="width:40px;height: 150px" /> -->
-		     	<a href="">在线客服</a><p><p>
+		     	<font color="yellow">商家公告</font></font><p><p>
 		 <!-- 美食栏 -->
 		     <%  if(request.getServletPath().contains("shpingcard")) {%>
 		     	<a href="front/shpingcard#1">到顶部</a>

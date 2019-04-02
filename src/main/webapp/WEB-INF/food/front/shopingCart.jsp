@@ -45,6 +45,7 @@ background-color: #FF0000;
 }
 </style>
 <script type="text/javascript">
+
 //计算一个商品小计
 function onesubtotal(pid){
 	   alert('ds');
@@ -84,9 +85,9 @@ function onesubtotal(pid){
 		</ul>
 
 		<form class="form-inline">
-			<input class="form-control mr-sm-2" type="text" />
-			<button class="btn btn-primary my-2 my-sm-0" type="submit">
-				Search</button>&nbsp;&nbsp;
+			<input class="form-control mr-sm-2" type="text" id="productName" value="${productName }"/>
+			<a  id="pn" href=""><button class="btn btn-primary my-2 my-sm-0" type="button" >
+				搜一搜</button></a>&nbsp;&nbsp;
 				<button type="button" id="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="height: 37px;width:77px">消息</button>
 		</form>
 		<ul class="navbar-nav ml-md-auto">
@@ -97,7 +98,7 @@ function onesubtotal(pid){
 			</c:when>
 			<c:otherwise>
 			<span style="color: white;">欢迎&ensp;
-					[${buyer.buyerName }]&ensp;登录 </span> <a href="front/exit"
+					[${buyer.buyerName }]&ensp;登录 </span> <a href="front/exit?name=${buyer.buyerName }"
 				style="text-decoration: none; color: white"><span>&nbsp;&nbsp;退出</span></a>
 			</c:otherwise>
 			</c:choose>
@@ -108,6 +109,8 @@ function onesubtotal(pid){
 </nav>
 			</div>
 		</div>
+
+
 		<!-- 中间模块 -->
 		<div class="row mx-auto" style="width: 90%">
 
@@ -267,9 +270,21 @@ function onesubtotal(pid){
 		src="resources/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 	<script type="text/javascript"
 		src="resources/bower_components/jeasyui/jquery.easyui.min.js"></script>
+	<script>
+	 $(document).ready(function(){
+	       //点击链接的时候调用
+	      $("#pn").click(function(){
+	    	  var productName = document.getElementById("productName").value;
+	          //设置linkToCart的href的值
+	          $("#pn").attr("href","front/productInfoOne?productName="+productName);
+	         
+	      });
+	    });
+</script>
 	<script type="text/javascript">
+	    
 		$(function() {
-
+                    
 			$(".myoption").click(function() {
 				$(".myoption")[0].addClass("clickhref");
 

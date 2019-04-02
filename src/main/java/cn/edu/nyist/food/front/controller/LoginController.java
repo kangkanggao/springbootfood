@@ -46,7 +46,7 @@ public class LoginController {
 			request.setAttribute("name", name);
 			return "/front/login";
 		}
-		System.out.println("++++++++++++++++++++++++");
+		//System.out.println("++++++++++++++++++++++++");
 		//登录验证
 	    BuyerInfo buyer=buyerInfoService.find(name,pwd);
 	    System.out.println(buyer);
@@ -61,6 +61,12 @@ public class LoginController {
 	    	request.setAttribute("name", name);
 	    	return "/front/login";
 	    }
+	}
+	@RequestMapping("/exit")
+	public String exit(@RequestParam String name,HttpServletRequest request,HttpSession session) {
+		
+		session.removeAttribute(name);
+		return "redirect:/front/toLogin";
 	}
 	
 }
