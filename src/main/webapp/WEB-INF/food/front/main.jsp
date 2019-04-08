@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,203 +12,434 @@
 
 <base href="<%=basePath%>">
 <meta charset="UTF-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>主页</title>
-<link href="resources/bower_components/bootstrap/dist/css/bootstrap.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="resources/bower_components/jeasyui/themes/bootstrap/easyui.css"
-	rel="stylesheet" type="text/css" />
-<!-- 鼠标悬停显示 -->
-<style type="text/css">
-html, body {
-	margin: 0;
-	padding: 0;
-	text-align: center;
-	
-}
-
-.menu ul {
-	list-style-type: none;
-	padding: 0px;
-	margin: 0px;
-	display: none;
-}
-
-.menu:hover ul {
-	display: block;
-}
-.navbar{
-
-background-color:#FF0000;
-}
-
-</style>
-
+<link rel="stylesheet" type="text/css"
+	href="resources/lujian/css/style.css">
 </head>
-<body style="background-color:;">
-	<!-- 锚点 -->
-	<a id="1"></a>
 
-	<div class="container-fluid mx-auto" style="padding: 0px;">
-
-		<!-- 主页导航栏 -->
-		<div class="row">
-			<div class="col-md-12">
-				<!-- 静态包含，侧边栏qq模块 -->
-				<%@include file="common/nav.jsp"%>
+<body>
+	<!-- start header -->
+	<header>
+		<div class="top center">
+			<div class="left fl">
+				<ul>
+					<li><a href="http://www.mi.com/" target="_blank">小米商城</a></li>
+					<li>|</li>
+					<li><a href="">MIUI</a></li>
+					<li>|</li>
+					<li><a href="">米聊</a></li>
+					<li>|</li>
+					<li><a href="">游戏</a></li>
+					<li>|</li>
+					<li><a href="">多看阅读</a></li>
+					<li>|</li>
+					<li><a href="">云服务</a></li>
+					<li>|</li>
+					<li><a href="">金融</a></li>
+					<li>|</li>
+					<li><a href="">小米商城移动版</a></li>
+					<li>|</li>
+					<li><a href="">问题反馈</a></li>
+					<li>|</li>
+					<li><a href="">Select Region</a></li>
+					<div class="clear"></div>
+				</ul>
 			</div>
-		</div>
-		<!-- 主页导航栏 end -->
-		<div class="row mx-auto " style="width: 90%;margin-top: 5px;">
-			<!-- 左边模块 -->
-			<div class="col-md-2"  style="background-color: #f5f5f5 ;">
-				<div class="row" style="background-color: rgb(0, 137, 220);">
-						
-						
-					  <div class="col-12" style="padding: 0px;">
-					  	<div style="height: 60px;color: white;line-height: 60px;">菜系类型</div>
-					    <div class="list-group" >
-						  <c:forEach items="${productTypes }" var="type">
-						  <a href="front/productInfoList?productType=${type.id }" class="list-group-item list-group-item-action" style="background-color:rgb(0, 137, 220);color: white; ">${type.typeName}</a>
-						  </c:forEach>
-						 
-						</div>
-					  </div>
-					
-					<hr/>
+			<div class="right fr">
+				<div class="gouwuche fr">
+					<a href="">购物车</a>
 				</div>
-				
+				<div class="fr">
+					<ul>
+						<li><a href="<%=basePath%>front/toLogin" target="_blank">登录</a></li>
+						<li>|</li>
+						<li><a href="<%=basePath%>front/toReg" target="_blank">注册</a></li>
+						<li>|</li>
+						<li><a href="">消息通知</a></li>
+					</ul>
+				</div>
+				<div class="clear"></div>
 			</div>
-			<!-- 右边模块中间模块 -->
+			<div class="clear"></div>
+		</div>
+	</header>
+	<!--end header -->
 
-			<div class="col-md-9" style="padding: 0px;">
-				<div class="card-group">
+	<!-- start banner_x -->
+	<div class="banner_x center">
+		<a href="./index.html" target="_blank"><div class="logo fl"></div></a>
+		<a href=""><div class="ad_top fl"></div></a>
+		<div class="nav fl">
+			<ul>
+				<li><a href="./liebiao.html" target="_blank">小米手机</a></li>
+				<li><a href="">红米</a></li>
+				<li><a href="">平板·笔记本</a></li>
+				<li><a href="">电视</a></li>
+				<li><a href="">盒子·影音</a></li>
+				<li><a href="">路由器</a></li>
+				<li><a href="">智能硬件</a></li>
+				<li><a href="">服务</a></li>
+				<li><a href="">社区</a></li>
+			</ul>
+		</div>
+		<div class="search fr">
+			<form action="" method="post">
+				<div class="text fl">
+					<input type="text" class="shuru" placeholder="小米6&nbsp;小米MIX现货">
+				</div>
+				<div class="submit fl">
+					<input type="submit" class="sousuo" value="搜索" />
+				</div>
+				<div class="clear"></div>
+			</form>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<!-- end banner_x -->
 
-					<div class="container-fluid">
-						<div class="row" >
-							<div class="col-md-12" style="padding: 0px;">
-								<div class="carousel slide" id="carousel-656103">
-									<ol class="carousel-indicators">
-										<li data-slide-to="0" data-target="#carousel-656103"
-											class="active"></li>
-										<li data-slide-to="1" data-target="#carousel-656103"></li>
-										<li data-slide-to="2" data-target="#carousel-656103"></li>
-									</ol>
-									<div class="carousel-inner">
-										
-										<div class="carousel-item active">
-											<img class="d-block w-100" alt="Carousel Bootstrap Second" src="resources/image/front/ms1.jpg" style="height: 400px;"/>
-											<div class="carousel-caption">
-												<h4>西式甜点</h4>
-												<p></p>
-											</div>
-										</div>
-										<div class="carousel-item">
-											<img class="d-block w-100" alt="Carousel Bootstrap Third" src="resources/image/front/ms2.jpg" style="height: 400px;"/>
-												
-											<div class="carousel-caption">
-												<h4>谷物</h4>
-												<p></p>
-											</div>
-										</div>
-										<div class="carousel-item">
-											<img class="d-block w-100" alt="Carousel Bootstrap Third" src="resources/image/front/ms3.jpg" style="height: 400px;"/>
-												
-											<div class="carousel-caption">
-												<h4>饮品</h4>
-												<p></p>
-											</div>
-										</div>
+	<!-- start banner_y -->
+	<div class="banner_y center">
+		<div class="nav">
+			<ul>
+				<c:forEach items="${productTypes }" var="type">
+					<li><a href="front/productInfoList?productType=${type.id } ">${type.typeName}</a>
+						<div class="pop">
+						  
+							<div class="left fl">
+						<c:forEach items="type.id" var="id">
+							 <c:forEach items="${id.content}" var="productInfo">
+								<div>
+									<div class="xuangou_left fl">
+										<a href="">
+											<div class="img fl">
+												<img src="upload/${productInfo.productPhoto }" alt="">
+											</div> <span class="fl">${productInfo.productName}</span>
+											<div class="clear"></div>
+										</a>
 									</div>
-									<a class="carousel-control-prev" href="#carousel-656103" data-slide="prev">
-										<span class="carousel-control-prev-icon"></span>
-										<span class="sr-only">Previous</span>
-									</a> 
-									<a class="carousel-control-next" href="#carousel-656103" data-slide="next">
-										<span class="carousel-control-next-icon"></span>
-										<span class="sr-only">Next</span>
-									</a>
+									<div class="xuangou_right fr">
+										<a href="./xiangqing.html" target="_blank">选购</a>
+									</div>
+									<div class="clear"></div>
+								</div>
+								
+								
+								
+								
+								<!-- <div>
+									<div class="xuangou_left fl">
+										<a href="">
+											<div class="img fl">
+												<img src="resources/lujian/image/xm5Splus.jpg" alt="">
+											</div> <span class="fl">小米5s Plus</span>
+											<div class="clear"></div>
+										</a>
+									</div>
+									<div class="xuangou_right fr">
+										<a href="">选购</a>
+									</div>
+									<div class="clear"></div>
+								</div> -->
+							</div>
+							</c:forEach>
+							</c:forEach>
+							<div class="ctn fl">
+								<div>
+									<div class="xuangou_left fl">
+										<a href="">
+											<div class="img fl">
+												<img src="resources/lujian/image/xm5-80.jpg" alt="">
+											</div> <span class="fl">小米手机5</span>
+											<div class="clear"></div>
+										</a>
+									</div>
+									<div class="xuangou_right fr">
+										<a href="">选购</a>
+									</div>
+									<div class="clear"></div>
+								</div>
+								
+								
+								
+								
+								<div>
+									<div class="xuangou_left fl">
+										<a href="">
+											<div class="img fl">
+												<img src="resources/lujian/image/hm4A-80.jpg" alt="">
+											</div> <span class="fl">红米4A</span>
+											<div class="clear"></div>
+										</a>
+									</div>
+									<div class="xuangou_right fr">
+										<a href="">选购</a>
+									</div>
+									<div class="clear"></div>
 								</div>
 							</div>
-						</div>
-					</div>
-					<hr/>
-					
-					<!-- 推荐开始 -->
-					<div class="container-fluid">
-						<div class="row" >
-							<div class="col-md-12" style="padding: 0px;">
-								<div style="margin-top: 5px;">
-									<div class="alert alert-info" role="alert" style="margin: 0px;background-color: rgb(0, 137, 220);color: white;"><h4>推荐菜品</h4></div>
-									<!-- 查询店家所推出的菜品的内容 -->
-									<div class="card-group" >
-									  <div class="card" style="padding: 8px;background-color: #f0f8ff;">
-									  
-							<!-- 添加转到购物车的url -->
-									  	<a href="front/productInfoList?productType=1">
-									    	<img class="card-img-top" src="resources/image/front/food_001.jpg" alt="Card image cap" title="进店转转" style="height: 200px;">
-									     </a>
-									    <div class="card-body">
-									      <h5 class="card-title">第一类川菜酸辣土豆丝</h5>
-									    </div>
-									   
-									  </div>
-									  
-									   <div class="card" style="padding: 8px;background-color: #f0f8ff;">
-									   <a href="front/productInfoList?productType=2">
-									    <img class="card-img-top" src="resources/image/front/food_002.jpg" alt="Card image cap" title="进店转转" style="height: 200px;">
-									   </a> 
-									    <div class="card-body">
-									      <h5 class="card-title">第二类鲁菜黄焖莲菜</h5>
-									    </div>
-									    
-									  </div>
-									
-									  <div class="card" style="padding: 8px;background-color: #f0f8ff;">
-									  	 <a href="front/productInfoList?productType=3">
-											<img class="card-img-top" src="resources/image/front/food_003.jpg" alt="Card image cap" title="进店转转" style="height: 200px;">
-									    </a>
-									    <div class="card-body">
-									      <h5 class="card-title">第三类豫菜大盘鸡</h5>
-									    </div>
-									   
-									  </div>
-									  
+							<div class="right fl">
+								
+								<div>
+									<div class="xuangou_left fl">
+										<a href="">
+											<div class="img fl">
+												<img src="resources/lujian/image/mimobile.jpg" alt="">
+											</div> <span class="fl">小米移动&nbsp;电话卡</span>
+											<div class="clear"></div>
+										</a>
 									</div>
+									<!-- <div class="xuangou_right fr"><a href="">选购</a></div> -->
+									<div class="clear"></div>
 								</div>
 							</div>
-						</div>
-					</div>
-					<!-- end -->
-					
-				</div>
-			</div>
-			<!-- -中间模块最右边right -->
-			<div class="col-md-1">
+							<div class="clear"></div>
+						</div></li>
 
-				<!-- 静态包含，侧边栏qq模块 -->
-				<%@include file="common/rightqq.jsp"%>
+				</c:forEach>
+
+			</ul>
+		</div>
+
+	</div>
+
+	<div class="sub_banner center">
+		<div class="sidebar fl">
+			<div class="fl">
+				<a href=""><img src="resources/lujian/image/hjh_01.gif"></a>
+			</div>
+			<div class="fl">
+				<a href=""><img src="resources/lujian/image/hjh_02.gif"></a>
+			</div>
+			<div class="fl">
+				<a href=""><img src="resources/lujian/image/hjh_03.gif"></a>
+			</div>
+			<div class="fl">
+				<a href=""><img src="resources/lujian/image/hjh_04.gif"></a>
+			</div>
+			<div class="fl">
+				<a href=""><img src="resources/lujian/image/hjh_05.gif"></a>
+			</div>
+			<div class="fl">
+				<a href=""><img src="resources/lujian/image/hjh_06.gif"></a>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="datu fl">
+			<a href=""><img src="resources/lujian/image/hongmi4x.png" alt=""></a>
+		</div>
+		<div class="datu fl">
+			<a href=""><img src="resources/lujian/image/xiaomi5.jpg" alt=""></a>
+		</div>
+		<div class="datu fr">
+			<a href=""><img src="resources/lujian/image/pinghengche.jpg"
+				alt=""></a>
+		</div>
+		<div class="clear"></div>
+
+
+	</div>
+	<!-- end banner -->
+	<div class="tlinks">
+		Collect from <a href="http://www.cssmoban.com/">企业网站模板</a>
+	</div>
+
+	<!-- start danpin -->
+	<div class="danpin center">
+
+		<div class="biaoti center">小米明星单品</div>
+		<div class="main center">
+			<div class="mingxing fl">
+				<div class="sub_mingxing">
+					<a href=""><img src="resources/lujian/image/pinpai1.png" alt=""></a>
+				</div>
+				<div class="pinpai">
+					<a href="">小米MIX</a>
+				</div>
+				<div class="youhui">5月9日-21日享花呗12期分期免息</div>
+				<div class="jiage">3499元起</div>
+			</div>
+			<div class="mingxing fl">
+				<div class="sub_mingxing">
+					<a href=""><img src="resources/lujian/image/pinpai2.png" alt=""></a>
+				</div>
+				<div class="pinpai">
+					<a href="">小米5s</a>
+				</div>
+				<div class="youhui">5月9日-10日，下单立减200元</div>
+				<div class="jiage">1999元</div>
+			</div>
+			<div class="mingxing fl">
+				<div class="sub_mingxing">
+					<a href=""><img src="resources/lujian/image/pinpai3.png" alt=""></a>
+				</div>
+				<div class="pinpai">
+					<a href="">小米手机5 64GB</a>
+				</div>
+				<div class="youhui">5月9日-10日，下单立减100元</div>
+				<div class="jiage">1799元</div>
+			</div>
+			<div class="mingxing fl">
+				<div class="sub_mingxing">
+					<a href=""><img src="resources/lujian/image/pinpai4.png" alt=""></a>
+				</div>
+				<div class="pinpai">
+					<a href="">小米电视3s 55英寸</a>
+				</div>
+				<div class="youhui">5月9日，下单立减200元</div>
+				<div class="jiage">3999元</div>
+			</div>
+			<div class="mingxing fl">
+				<div class="sub_mingxing">
+					<a href=""><img src="resources/lujian/image/pinpai5.png" alt=""></a>
+				</div>
+				<div class="pinpai">
+					<a href="">小米笔记本</a>
+				</div>
+				<div class="youhui">更轻更薄，像杂志一样随身携带</div>
+				<div class="jiage">3599元起</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="peijian w">
+		<div class="biaoti center">配件</div>
+		<div class="main center">
+			<div class="content">
+				<div class="remen fl">
+					<a href=""><img src="resources/lujian/image/peijian1.jpg"></a>
+				</div>
+				<div class="remen fl">
+					<div class="xinpin">
+						<span>新品</span>
+					</div>
+					<div class="tu">
+						<a href=""><img src="resources/lujian/image/peijian2.jpg"></a>
+					</div>
+					<div class="miaoshu">
+						<a href="">小米6 硅胶保护套</a>
+					</div>
+					<div class="jiage">49元</div>
+					<div class="pingjia">372人评价</div>
+					<div class="piao">
+						<a href=""> <span>发货速度很快！很配小米6！</span> <span>来至于mi狼牙的评价</span>
+						</a>
+					</div>
+				</div>
+				<div class="remen fl">
+					<div class="xinpin">
+						<span style="background: #fff"></span>
+					</div>
+					<div class="tu">
+						<a href=""><img src="resources/lujian/image/peijian3.jpg"></a>
+					</div>
+					<div class="miaoshu">
+						<a href="">小米手机4c 小米4c 智能</a>
+					</div>
+					<div class="jiage">29元</div>
+					<div class="pingjia">372人评价</div>
+				</div>
+				<div class="remen fl">
+					<div class="xinpin">
+						<span style="background: red">享6折</span>
+					</div>
+					<div class="tu">
+						<a href=""><img src="resources/lujian/image/peijian4.jpg"></a>
+					</div>
+					<div class="miaoshu">
+						<a href="">红米NOTE 4X 红米note4X</a>
+					</div>
+					<div class="jiage">19元</div>
+					<div class="pingjia">372人评价</div>
+					<div class="piao">
+						<a href=""> <span>发货速度很快！很配小米6！</span> <span>来至于mi狼牙的评价</span>
+						</a>
+					</div>
+				</div>
+				<div class="remen fl">
+					<div class="xinpin">
+						<span style="background: #fff"></span>
+					</div>
+					<div class="tu">
+						<a href=""><img src="resources/lujian/image/peijian5.jpg"></a>
+					</div>
+					<div class="miaoshu">
+						<a href="">小米支架式自拍杆</a>
+					</div>
+					<div class="jiage">89元</div>
+					<div class="pingjia">372人评价</div>
+					<div class="piao">
+						<a href=""> <span>发货速度很快！很配小米6！</span> <span>来至于mi狼牙的评价</span>
+						</a>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="content">
+				<div class="remen fl">
+					<a href=""><img src="resources/lujian/image/peijian6.png"></a>
+				</div>
+				<div class="remen fl">
+					<div class="xinpin">
+						<span style="background: #fff"></span>
+					</div>
+					<div class="tu">
+						<a href=""><img src="resources/lujian/image/peijian7.jpg"></a>
+					</div>
+					<div class="miaoshu">
+						<a href="">小米指环支架</a>
+					</div>
+					<div class="jiage">19元</div>
+					<div class="pingjia">372人评价</div>
+					<div class="piao">
+						<a href=""> <span>发货速度很快！很配小米6！</span> <span>来至于mi狼牙的评价</span>
+						</a>
+					</div>
+				</div>
+				<div class="remen fl">
+					<div class="xinpin">
+						<span style="background: #fff"></span>
+					</div>
+					<div class="tu">
+						<a href=""><img src="resources/lujian/image/peijian8.jpg"></a>
+					</div>
+					<div class="miaoshu">
+						<a href="">米家随身风扇</a>
+					</div>
+					<div class="jiage">19.9元</div>
+					<div class="pingjia">372人评价</div>
+				</div>
+				<div class="remen fl">
+					<div class="xinpin">
+						<span style="background: #fff"></span>
+					</div>
+					<div class="tu">
+						<a href=""><img src="resources/lujian/image/peijian9.jpg"></a>
+					</div>
+					<div class="miaoshu">
+						<a href="">红米4X 高透软胶保护套</a>
+					</div>
+					<div class="jiage">59元</div>
+					<div class="pingjia">775人评价</div>
+				</div>
+				<div class="remenlast fr">
+					<div class="hongmi">
+						<a href=""><img src="resources/lujian/image/hongmin4.png"
+							alt=""></a>
+					</div>
+					<div class="liulangengduo">
+						<a href=""><img src="resources/lujian/image/liulangengduo.png"
+							alt=""></a>
+					</div>
+				</div>
+				<div class="clear"></div>
 			</div>
 		</div>
-		<!-- 右边模块结束 -->
 	</div>
-	<!-- 底部版权 -->
-	<div class="row mx-auto card"
-		style="height: 100px; background-color: #e5e5e5; line-height: 100px">
-		<!-- 静态包含，底部版权模块 -->
-		<%@include file="common/copyright.jsp"%>
-	</div>
+	<footer class="mt20 center">
 
+		<div>©lujian.com 京ICP证0000001号 京ICP备10046444号
+			京公网安备11010802020138号 京网文[2019]0059-0009号</div>
 
-
-	<!-- js文件放在最后面，提高网页响应速度 -->
-	<script type="text/javascript"
-		src="resources/bower_components/jquery/dist/jquery.js"></script>
-	<script type="text/javascript"
-		src="resources/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-	<script type="text/javascript"
-		src="resources/bower_components/jeasyui/jquery.easyui.min.js"></script>
+	</footer>
 </body>
 </html>

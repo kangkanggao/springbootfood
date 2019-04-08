@@ -27,9 +27,10 @@ public class RegController {
 	 */
 	@Autowired
 	private BuyerInfoService buyerInfoService;
-
+    
+	
 	@RequestMapping("/reg")
-	public String reg(@RequestParam String name, @RequestParam String secondphone, @RequestParam String secondsms,
+	public String reg(@RequestParam String name, @RequestParam String secondphone, 
 			@RequestParam String secondpwd, @RequestParam String pwd, @RequestParam String vcode,
 			HttpServletRequest request, HttpSession session) {
 		/*
@@ -45,10 +46,10 @@ public class RegController {
 		// 判断手机号验证码是否与填写的一致
 
 		String phoneSMS = (String) session.getAttribute("phoneSMS");
-		if (!phoneSMS.equals(secondsms)) {
+	/*	if (!phoneSMS.equals(secondsms)) {
 			request.setAttribute("phonemsg", "手机验证码不正确");
 			return "/front/login";
-		}
+		}*/
 		//
 		String serverVcode = (String) request.getSession().getAttribute(ValidateController.SERVER_VCODE);
 		System.out.println(serverVcode + "-----------------------");

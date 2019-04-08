@@ -24,7 +24,11 @@ public class LoginController {
 	/*
 	 * 登录的controller
 	 */
-	
+	@RequestMapping("/toReg")
+	public String toReg( ) {
+		
+		return "/front/register";
+	}
 	@RequestMapping("/toLogin")
 	public String toLogin( ) {
 		
@@ -55,7 +59,7 @@ public class LoginController {
 	    	//登陆成功到主界面
 	    	session.setAttribute("buyer",buyer);//登录成功，记录在session
 	    	session.setAttribute("carts", new ArrayList<>());
-	    	return "/front/main";
+	    	return "redirect:/front/toMain";
 	    }else {
 	    	request.setAttribute("msg","用户名或者密码错误");
 	    	request.setAttribute("name", name);
