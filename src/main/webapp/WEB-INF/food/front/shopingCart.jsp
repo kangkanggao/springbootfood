@@ -20,11 +20,19 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>购物车</title>
-<link href="resources/bower_components/bootstrap/dist/css/bootstrap.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="resources/bower_components/jeasyui/themes/bootstrap/easyui.css"
-	rel="stylesheet" type="text/css" />
+<link href="resources/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="resources/icomoon/style.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="resources/gkk/css/main.css" />
+	<link rel="stylesheet" href="resources/gkk/css/index.css" />
+	<link rel="stylesheet" href="resources/gkk/css/shopcar.css" />
+	<link rel="stylesheet" href="resources/gkk/css/detail.css" />
+	<link rel="stylesheet" href="resources/gkk/css/searchresult.css" />
+	<script src='resources/gkk/js/jquery-1.12.4.min.js'></script>
+	<script src='resources/gkk/js/jquery.countdown.min.js'></script>
+	<script src='resources/gkk/js/index.js'></script>
+	<script src='resources/gkk/js/searchresult.js'></script>
+	<script src='resources/gkk/js/jquery.cookie.js'></script>
+	<script src='resources/gkk/js/jquery.lazyload.min.js'></script>
 <style type="text/css">
 /* 选项操作点击颜色改变 */
 .myoption {
@@ -36,7 +44,7 @@
 }
 
 body{
-background-color:  #F5F5F5
+background-color:  #ff;
 
 }
 .navbar{
@@ -57,68 +65,101 @@ function onesubtotal(pid){
 	   }
 
 </script>
-</head>
-<body>
-	<div class="container-fluid">
-		<!-- 主页导航栏 -->
-		<div class="row">
-			<div class="col-md-12">
-				<!-- 静态包含，侧边栏qq模块 -->
-				<nav class="navbar navbar-expand-lg navbar-light static-top">
 
-	<button class="navbar-toggler" type="button" data-toggle="collapse"
-		data-target="#bs-example-navbar-collapse-1">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<a class="navbar-brand" href="#">Brand</a>
-	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		<ul class="navbar-nav">
-			<li class="nav-item active"><a class="nav-link"
-				href="front/toMain" style="color: white;">首页</a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="front/productInfoList" style="color: white;">美食等你来</a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="front/shopingCart" style="color: white;">我的购物车</a></li>
-			<li class="nav-item"><a class="nav-link" href="front/order" style="color: white;">我的订单</a></li>
-			<li class="nav-item"><a class="nav-link" href="front/orderpay" style="color: white;">订单结算</a></li>
-		
-		</ul>
-
-		<form class="form-inline">
-			<input class="form-control mr-sm-2" type="text" id="productName" value="${productName }"/>
-			<a  id="pn" href=""><button class="btn btn-primary my-2 my-sm-0" type="button" >
-				搜一搜</button></a>&nbsp;&nbsp;
-				<button type="button" id="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="height: 37px;width:77px">消息</button>
-		</form>
-		<ul class="navbar-nav ml-md-auto">
-			<li class="nav-item active">
-			<c:choose>
-			<c:when test="${empty buyer.buyerName }">
-			   <a href="front/toLogin" style="text-decoration: none"><span style="color: white">亲爱的用户，请登录</span></a>
-			</c:when>
-			<c:otherwise>
-			<span style="color: white;">欢迎&ensp;
-					[${buyer.buyerName }]&ensp;登录 </span> <a href="front/exit?name=${buyer.buyerName }"
-				style="text-decoration: none; color: white"><span>&nbsp;&nbsp;退出</span></a>
-			</c:otherwise>
-			</c:choose>
-			</li>
-			<li class="nav-item dropdown"></li>
-		</ul>
-	</div>
-</nav>
+	<!--header-->
+	<div id="headerwrap">
+		<div id="header">
+			<b class="header-position"></b>
+			<div class="header-city">邯郸
+				<div class="citylist">
+					<div class="citylisttit">当前城市：<b>邯郸</b></div>
+					<ul class="cityitem">
+						<li><span>S</span><a href="javascript:;">石家庄</a></li>
+						<li><span>B</span><a href="javascript:;">保定</a></li>
+						<li><span>C</span><a href="javascript:;">沧州</a> <a href="javascript:;">承德</a></li>
+						<li><span>C</span><a href="javascript:;">邯郸</a>  <a href="javascript:;">衡水</a></li>
+						<li><span>L</span><a href="javascript:;">廊坊</a></li>
+						<li><span>Q</span><a href="javascript:;">秦皇岛</a></li>
+						<li><span>T</span><a href="javascript:;">唐山</a></li>
+						<li><span>X</span><a href="javascript:;">邢台</a></li>
+						<li><span>Z</span><a href="javascript:;">张家口</a></li>
+					</ul>
+				</div>
+			</div>
+			<a class="header-switch" href="javascript:;">[切换区县]</a>
+			<p class='header-welcome'>欢迎光临本店！<a href="login.html">请登录</a><a href="register.html">免费注册</a></p>
+			<div class="header-myinfo">我的信息<span></span>
+				<div class="myinfo-list">
+					<a href="javascript:;">已买到的宝贝</a>
+					<a href="javascript:;">我的地址管理</a>
+				</div>
+			</div>
+			<a class="header-myfav" href="javascript:;"><i></i>我关注的店铺</a>
+			<a class="header-shopcar" href="javascript:;"><i></i>购物车</a>
+			<div class="header-collect" href="javascript:;">收藏夹<i></i>
+				<div class="collectitem">
+					<a href="javascript:;">收藏的宝贝</a>
+					<a href="javascript:;">收藏的店铺</a>
+				</div>
+			</div>
+			<div class="header-line">|</div>
+			<div class="header-mobile" href="javascript:;"><span></span>手机版<i></i>
+				<div href="javascript:;" class="app"><img src="resources/gkk/img/app.jpg" alt=""></div>
+			</div>
+			<div class="header-seller" href="javascript:;">商家支持<i></i>
+				<div class="sellerhelp">
+					<h5>商家：</h5>
+					<p><a href="javascript:;">售后流程</a><a href="javascript:;">购物流程</a><a href="javascript:;">订购方式</a><a href="javascript:;">常见问题</a><a href="javascript:;">文章资讯</a><a href="javascript:;">聚惠卡</a><a href="javascript:;">认证商家</a><a href="javascript:;">商学院</a><a href="javascript:;">全面招商</a></p>
+					<h6>帮助：</h6>
+					<p class="p2"><a href="javascript:;">帮助中心</a></p>
+				</div>
+			</div>
+			<div class="header-nav" href="javascript:;"><i></i>网站导航<span></span>
+				<div class="navmenu">
+					<div class="menuleft">
+						<h6 class="menulefttit">产品分类 Product</h6>
+						<p class="menuleftlist"><a href="javascript:;">食品生鲜</a><a href="javascript:;">服装服饰</a><a href="javascript:;">个护化妆</a><a href="javascript:;">手机数码</a><a href="javascript:;">家用电器</a><a href="javascript:;">家纺家居</a><a href="javascript:;">酒类饮料</a><a href="javascript:;">母婴用品</a></p>
+					</div>
+					<div class="menumid">
+						<h6 class="menulefttit menumidtit">店铺街 Market</h6>
+						<p class="menuleftlist menumidlist"><a href="javascript:;">精选</a><a href="javascript:;">女人</a><a href="javascript:;">男人</a><a href="javascript:;">家装</a><a href="javascript:;">母婴</a><a href="javascript:;">美妆</a><a href="javascript:;">美食</a><a href="javascript:;">数码</a></p>
+					</div>
+					<div class="menuright">
+						<h6 class="menulefttit menurighttit">店铺街 Market</h6>
+						<p class="menuleftlist menurightlist"><a href="javascript:;">精选</a><a href="javascript:;">女人</a><a href="javascript:;">男人</a><a href="javascript:;">家装</a><a href="javascript:;">母婴</a></p>
+					</div>
+				</div>
 			</div>
 		</div>
-
+	</div>
+	
+</head>
+<body>
+	<div class="container-fluid " style="margin-top: 0px;padding-top: 0px">
+		<!-- 主页导航栏 -->
+	
+<div class="xiantiao"></div>
 
 		<!-- 中间模块 -->
-		<div class="row mx-auto" style="width: 90%">
+		<div class="row mx-auto" style="width: 80%">
 
+	<!--header-->
+	<div id="shopcarthead">
+		<h1 id="shopcartlogo"><a href="../index.html"><img src="resources/gkk/img/login/logo.jpg" alt=""></a></h1>
+		<div class="step">
+			<div class="step1">查看购物车<p></p></div>
+			<div class="step2">拍下商品<p>2</p></div>
+			<div class="step3">付款<p>3</p></div>
+			<div class="step4">确认收货<p>4</p></div>
+			<div class="step5">评价<p>5</p></div>
+		</div>
+	</div>
+             
 			<!-- 顶部导航栏设计 -->
-			<div class="row mx-auto text-center"
-				style="border: 1px solid red; width: 90%; height: 23%; background-color:rgb(0, 137, 220); margin-bottom: 0px">
+			<!-- <div class="row mx-auto text-center"
+				style="border: 1px solid #ff6700; width: 100%; height: 23%; background-color:#ff6700; margin-bottom: 0px">
 				<div
-					style="padding-left: 30px; padding-right: 15px; padding-top: 5px; border: px solid white;">
+					style="padding-left: 20px; padding-right: 15px; padding-top: 5px; border: px solid white;">
 					<img class="rounded-circle img-thumbnail "
 						src="resources/image/shoping.png"
 						style="max-width: 78px; height: 80px">
@@ -127,40 +168,41 @@ function onesubtotal(pid){
 				<div
 					style="padding-left: 30px; padding-top: 20px; border: px solid white;">
 					<h3 class="text-left" style="color: white;padding-top: 10px">我的购物车</h3>
+					<span class="text-left" style="color: white;padding-top: 10px">温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</span>
 				</div>
-					<span style="color: white;padding-left: 100px;padding-top: 45px">吃不完的美食</span>
+					<span style="color: white;padding-left: 100px;padding-top: 45px"></span>
 
-				<!-- <div
+				<div
 					style="padding-left: 40px; padding-right: 15px; padding-top: 10px; border: px solid white;">
 					<h4 class="text-left" style="color: white;">我的余额</h4>
 					<span style="color: white;"><a href="" >没有钱，去充值</a></span>
 				</div>
- -->
+
 				
 
-			</div>
+			</div> -->
 			<!-- 顶部导航栏结束 -->
 			<form action="shopingcart" method="post">
 
-				<div class="col-md-12 mx-auto" style="padding-left: 43px">
+				<div class="col-md-12 mx-auto" style="padding-left: 0px;padding-right: 0px">
 
 					
-					<div class="row mx-auto text-center" style="width: 80%;border: 2px solid red;">
+					<div class="row mx-auto text-center" style="width: 100%;border: 2px solid #e31939;">
 						<div class="col-md-12">
 
 
 							<table class="table table-hover">
 								<!-- 优化列表界面，自己设置列宽 -->
 								<thead class="col-md-12">
-									<tr class="row" style="background: #FFFFCC">
+									<tr class="row" style="background: #e31939">
 										<!-- 设置每一列宽 -->
-										<th class=" col-md-1 col-1 text-center">编号</th>
-										<th class=" col-md-3 col-1 text-center">图片</th>
-										<th class=" col-md-2 col-1 text-center">名称</th>
-										<th class=" col-md-1 col-1 text-center">价格</th>
-										<th class=" col-md-2 col-1 text-center">数量</th>
-										<th class=" col-md-2 col-1 text-center">小计</th>
-										<th class=" col-md-1 col-1 text-center">操作</th>
+										<th class=" col-md-1 col-1 text-center"><label style="color: white">编号</label></th>
+										<th class=" col-md-3 col-1 text-center"><label style="color: white">图片</label></th>
+										<th class=" col-md-2 col-1 text-center"><label style="color: white">名称</label></th>
+										<th class=" col-md-1 col-1 text-center"><label style="color: white">价格</label></th>
+										<th class=" col-md-2 col-1 text-center"><label style="color: white">数量</label></th>
+										<th class=" col-md-2 col-1 text-center"><label style="color: white">小计</label></th>
+										<th class=" col-md-1 col-1 text-center"><label style="color: white">操作</label></th>
 									</tr>
 								</thead>
 								<tbody class="col-md-12">
@@ -179,8 +221,8 @@ function onesubtotal(pid){
 											<td class="col-md-1 col-1 text-center"><span id="">${productInfo.productId}</span></td>
 											<input type="hidden" name="<%=s%>+${productInfo.productId}" value="${productInfo.productId}" id="<%=s %>"/>
 											<td class="col-md-3 col-1 text-center"><img id="myimg"
-												src="upload/${productInfo.productPhoto }"
-												style="width: 40%;"></td>
+												src="upload/${productInfo.productPhoto}"
+												style="width: 30%;"></td>
 											<td class="col-md-2 col-1 text-center">${productInfo.productName}</td>
 											<td class="col-md-1 col-1 text-center"><span id="productprice<%=s %>">${productInfo.productPrice }</span>
 
@@ -188,7 +230,7 @@ function onesubtotal(pid){
 
 											<td class="col-md-2 col-1 text-center">
 												<!-- 点击+1  -1 --> 
-											<input type="button" class="sub" onclick="sub(<%=s %>)"  value="-" style="max-width: 21px;"> 
+											<input type="button" class="sub" onclick="sub(<%=s %>)"  value="-" style="width: 23px;"> 
 											<!-- 判断session商品数量 -->
 												<c:forEach items="${sessionScope.carts}" var="cart">
 													<c:if test="${cart.productId==productInfo.productId }">
@@ -196,7 +238,7 @@ function onesubtotal(pid){
 											<input  id="productnum<%=s %>" readonly="readonly" value="${cart.productQuantity}" style="max-width: 21px;"> 				
 													</c:if>
 												</c:forEach>
-											 <input  onclick="add(<%=s%>,'${productInfo.productStock}')" type="button" value="+" style="max-width: 21px;">
+											 <input  onclick="add(<%=s%>,'${productInfo.productStock}')" type="button" value="+" style="width: 23px;">
 											</td>
 											<td class="col-md-2 col-1 text-center">
 												<!-- 总价 -->
@@ -219,12 +261,12 @@ function onesubtotal(pid){
 
 						<div style="border: px solid white;" class="float-right col-md-5">
 
-							<button type="button" class="btn btn-outline-danger" onclick="clearShopping(event)">
-								清空购物车</button>
-							<button type="button" class="btn btn-outline-danger"
-								onclick="toshopinglist(event)">继续购物</button>
-							<button type="button" class="btn btn-outline-danger"
-								onclick="toorderpay(event)">去结算</button>
+							<input type="button" class="gotopay" onclick="clearShopping(event)" value="清空购物车">
+								
+							<input type="button" class="gotopay"
+								onclick="toshopinglist(event)" value="继续购物">
+							<input type="button" class="gotopay"
+								onclick="toorderpay(event)" value="去结算">
 
 						</div>
 						<div style="border: px solid white; padding-left: 100px"
@@ -232,17 +274,17 @@ function onesubtotal(pid){
 						</div>
                           
 						<div
-							style="border: 1px solid red;; margin-left: 0px; background-color: #CCCCCC"
+							style="border: 1px solid #e31939;; margin-left: 0px; background-color: #e31939"
 							class="float-right col-md-3">
 							<ul
 								style="list-style-type: none; padding-top: 10px; padding-left: 50px">
-								<li><label style="color: red">
-										&yen;&nbsp;小计&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input id="smallTotal" class="subtotal" value="0"readonly="readonly" style="width:60px;border: none;background-color: #CCCCCC"></input></li>
-								<li><label style="color: red">
-										&yen;&nbsp;配送费&nbsp;&nbsp;</label><input id="roadmoney<%=s%>" value="10"readonly="readonly" style="width:60px;border: none;background-color: #CCCCCC"></input></li>
+								<li><label style="color: white">
+										&yen;&nbsp;小计&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input id="smallTotal" class="subtotal" value="0"readonly="readonly" style="width:60px;border: none;background-color: white"></input></li>
+								<li><label style="color: white">
+										&yen;&nbsp;配送费&nbsp;&nbsp;</label><input id="roadmoney<%=s%>" value="10"readonly="readonly" style="width:60px;border: none;background-color: white"></input></li>
 								<li id="sumLi">
-								   <label style="color: red">&yen;&nbsp;总价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-								   <input  id="totalSum" value="10" readonly="readonly" style="width:60px;border: none;background-color: #CCCCCC; "></input>
+								   <label style="color: white">&yen;&nbsp;总价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+								   <input  id="totalSum" value="10" readonly="readonly" style="width:60px;border: none;background-color: white; "></input>
 								</li>
 							</ul>
 						</div>
@@ -255,12 +297,6 @@ function onesubtotal(pid){
 	</div>
 
 
-	<!-- 底部版权 -->
-	<div class="row mx-auto card"
-		style="height: 100px; background-color: #e5e5e5; line-height: 100px">
-		<!-- 静态包含，底部版权模块 -->
-		<%@include file="common/copyright.jsp"%>
-	</div>
 
 
 	<!-- js文件放在最后面，提高网页响应速度 -->

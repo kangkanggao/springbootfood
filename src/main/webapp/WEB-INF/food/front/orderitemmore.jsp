@@ -47,12 +47,7 @@ body{
 							
 
 						</div>
-						<!-- 分割线上面的图片 -->
-						<!-- <div class="col-md-6"
-							style="padding-left: 30px; padding-right: 6px; padding-top: 8px; border: 2px solid white;">
-							<img class=" img-thumbnail " src="resources/image/glod.jpg"
-								style="max-width: 20%; height:">
-						</div> -->
+						
 						<!-- 中间分割线 -->
 						<hr style="color: #987cb9; size: 2px; width: 96%">
 					</div>

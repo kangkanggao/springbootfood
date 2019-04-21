@@ -30,7 +30,7 @@ private static Logger logger=LogManager.getLogger(FrontInterceptor.class);
 		String requestURI=request.getRequestURI();
 		if(requestURI.contains("/front")) {
 			if (request.getSession().getAttribute("buyer") == null) {
-				if (requestURI.endsWith("/toLogin") || requestURI.endsWith("/login") || requestURI.endsWith("/vcode.png")) {
+				if (requestURI.endsWith("/toLogin") || requestURI.endsWith("/login")|| requestURI.endsWith("/sendSMS")  ||requestURI.endsWith("/toReg")|| requestURI.endsWith("/vcode.png")) {
 					return true;
 				}
 				// 如果没有登录，请求其他，我们将先转到登录界面

@@ -18,7 +18,7 @@ import net.sf.json.JSONObject;
 @ServerEndpoint("/chatDemo/{sendUser}")
 public class Chat {
 	public Chat() {
-		System.out.println("测试是否是单例----------------------------------------");
+		
 	}
 	private static int onLineCount = 0;
 	// 当前的websocket对象

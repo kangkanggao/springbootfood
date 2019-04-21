@@ -27,7 +27,7 @@
 				if('WebSocket' in window){
 					 var sendUser = document.getElementById("sendUser").value;
 					 document.getElementById("sendUser").disabled = true;
-					websocket = new WebSocket("ws://localhost:8080/food/chatDemo/" + sendUser);
+					websocket = new WebSocket("ws://<%=request.getServerName()%>:<%=request.getServerPort()%>/food/chatDemo/" + sendUser);
 		        }else{
 		              alert('Not support websocket');
 		        }

@@ -229,7 +229,25 @@
 			</div>
 		</div>
 		<%@include file="common/copy.jsp" %>
-		
+		<!--friend link-->
+		<div id="friendlink">
+			<p>
+				友情链接： <a href="javascript:;">南阳人才网</a> | <a href="javascript:;">南阳中小企业网</a>
+				| <a href="javascript:;">亿搜人才网</a> | <a href="javascript:;">南阳服务网</a>
+				| <a href="javascript:;">快递查询</a>
+			</p>
+			<p>
+				<a href="javascript:;">关于我们</a> | <a href="javascript:;">管理团队</a> |
+				<a href="javascript:;">商家入驻</a> | <a href="javascript:;">媒体报道</a> |
+				<a href="javascript:;">站点地图</a> | <a href="javascript:;">招贤纳士</a> |
+				<a href="javascript:;">帮助中心</a> ICP备案证书号:<a href="javascript:;">豫ICP备1000002号-1</a>
+			</p>
+			<p>
+				<a href="javascript:;">© 2018-2019 同城天天订商城 版权所有，并保留所有权利。</a> <a
+					href="javascript:;">Tel: 18338448958</a> <a href="javascript:;">E-mail:
+					gkk15711255657@163.com</a>
+			</p>
+		</div>
 		<script type="text/javascript" src="resources/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 		<script type="text/javascript" src="resources/bower_components/vue/dist/vue.js"></script>
 		<script type="text/javascript" src="resources/bower_components/axios/dist/axios.js"></script>

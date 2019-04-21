@@ -38,11 +38,12 @@ public class OrderController {
 
 	// 订单结算
 	@RequestMapping("/orderpay")
-	public String toorderpay(HttpSession session, Model model, @RequestParam(required=false,defaultValue="0.0")Double totalprice) {
-		
-			// 获取商品总价
-			session.setAttribute("totalprice", totalprice);
-		
+	public String toorderpay(HttpSession session, Model model,
+			@RequestParam(required = false, defaultValue = "0.0") Double totalprice) {
+
+		// 获取商品总价
+		session.setAttribute("totalprice", totalprice);
+
 		// 获取购物车信息
 		List<CartDTO> carts = (List<CartDTO>) session.getAttribute("carts");
 		// 新建一个商品list存储
@@ -72,7 +73,7 @@ public class OrderController {
 	@RequestMapping("/addaddress")
 	public String addadress(HttpSession session, HttpServletRequest request, @ModelAttribute BuyerAddress buyerAddress,
 			Model model) {
-         
+
 		BuyerAddress buyeraddress = buyerInfoService.saveAddress(buyerAddress);
 		model.addAttribute("buyerAddress", buyeraddress);
 		// 成功添加
@@ -92,7 +93,7 @@ public class OrderController {
 		// 登录的用户
 		BuyerInfo buyerInfo = (BuyerInfo) session.getAttribute("buyer");
 		// 查找该用户所有地址
-		System.out.println(buyerInfo.getId() + "========");
+		// System.out.println(buyerInfo.getId() + "========");
 		List<BuyerAddress> ls = buyerInfoService.findByBid(buyerInfo.getId());
 		System.out.println(ls);
 		model.addAttribute("alladdress", ls);
@@ -140,30 +141,49 @@ public class OrderController {
 	public String order(HttpSession session, HttpServletRequest request, @RequestParam(required = false) int aid,
 			@RequestParam(required = false) String remarks) {
 		List<CartDTO> carts = (List<CartDTO>) session.getAttribute("carts");
-       System.out.println(aid+"=-=-=-=-=-=-=-=--=-=-");
+		System.out.println(aid + "=-=-=-=-=-=-=-=--=-=-");
 		BuyerAddress buyerAddress = buyerInfoService.findById(aid);
 		System.out.println(buyerAddress);
 		double ordermout = (double) session.getAttribute("totalprice");
-	
+
 		Order order = new Order();
 		order.setBuyerAddress(buyerAddress.getAddress());
-		//买家名字
+		// 买家名字
 		// 登录的用户
 		BuyerInfo buyerInfo = (BuyerInfo) session.getAttribute("buyer");
 		order.setBuyerName(buyerInfo.getBuyerName());
 		order.setBuyerPhone(buyerAddress.getPhone());
 		// 订单金额
 		order.setOrderAmount(ordermout);
-	
+
 		order.setCreateTime(new Date());
 		order.setSellerId(2);
-		//生成订单主键
-        String orderId=KeyUtil.genUniqueKey();
-        session.setAttribute("orderId",orderId);
+		// 生成订单主键
+		String orderId = KeyUtil.genUniqueKey();
+		session.setAttribute("orderId", orderId);
 		order.setOrderId(orderId);
-		//创建订单
+		// 创建订单
 		orderService.create(carts, order);
-
+		session.setAttribute("WIDout_trade_no", orderId);
+		session.setAttribute("WIDsubject", "牛奶" + order.getOrderId());
+		session.setAttribute("WIDtotal_amount", ordermout);
 		return "redirect:/front/toPay";
+	}
+
+	//修改订单支付状态之后调到支付界面
+	@RequestMapping("/toEditPayStatus")
+	public String toEditPayStatus(HttpSession session, HttpServletRequest request,@RequestParam(required = false)String orderid) {
+		String orderId= orderid;
+		Order order = orderService.findByOrderId(orderId);
+		session.setAttribute("WIDout_trade_no", order.getOrderId());
+		session.setAttribute("WIDsubject", "牛奶" + order.getOrderId());
+		session.setAttribute("WIDtotal_amount", order.getOrderAmount());
+		return "redirect:/front/toPay";
+	}
+	//跳转到支付界面
+	@RequestMapping("/toPay")
+	public String toPay() {
+
+		return "/front/pay";
 	}
 }

@@ -11,7 +11,7 @@
 	</script>
 <nav class="navbar navbar-expand-lg navbar-light static-top">
 
-	<button class="navbar-toggler" type="button" data-toggle="collapse"
+	<%-- <button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#bs-example-navbar-collapse-1">
 		<span class="navbar-toggler-icon"></span>
 	</button>
@@ -51,7 +51,7 @@
 			</li>
 			<li class="nav-item dropdown"></li>
 		</ul>
-	</div>
+	</div> --%>
 </nav>
 <!-- Modal -->
 	<script>

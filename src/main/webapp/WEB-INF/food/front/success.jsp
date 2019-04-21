@@ -91,7 +91,7 @@
 		window.onload=function() {
 			
 			if ('WebSocket' in window) {
-				websocket = new WebSocket("ws://localhost:8080/food/chatDemo/"
+				websocket = new WebSocket("ws://<%=request.getServerName()%>:<%=request.getServerPort()%>/food/chatDemo/"
 						+ 1+"${sessionScope.seller.username}");
 			} else {
 				alert('Not support websocket');

@@ -83,4 +83,8 @@ public class ProductInfoServiceImpl implements ProductInfoService {
 					}
 				}, pageable);
 	}
+	@Override
+	public List<ProductInfo> findProductInfosByType(int productTid) {
+		return productInfoRepository.findByProductTid(productTid);
+	}
 }

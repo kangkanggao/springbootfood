@@ -10,7 +10,6 @@
 	<packaging>jar</packaging>
 
 	<name>springboot_food</name>
-	<description>weixindiancan</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -101,6 +100,16 @@
 			<version>1.2</version>
 		</dependency>
 		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+		<!-- alipay SDK -->
+		<dependency>
+			<groupId>com.alipay.sdk</groupId>
+			<artifactId>alipay-sdk-java</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>1.2.44</version>
@@ -120,7 +129,7 @@
 	</dependencies>
 <build>
         <defaultGoal>compile</defaultGoal>
-        <sourceDirectory>src</sourceDirectory>
+        
         <finalName>springboot-package</finalName>
         <plugins>
             <plugin>

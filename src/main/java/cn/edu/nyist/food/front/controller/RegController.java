@@ -29,8 +29,9 @@ public class RegController {
 	private BuyerInfoService buyerInfoService;
     
 	
+	
 	@RequestMapping("/reg")
-	public String reg(@RequestParam String name, @RequestParam String secondphone, 
+	public String reg(@RequestParam String name, @RequestParam(defaultValue="") String secondphone, 
 			@RequestParam String secondpwd, @RequestParam String pwd, @RequestParam String vcode,
 			HttpServletRequest request, HttpSession session) {
 		/*

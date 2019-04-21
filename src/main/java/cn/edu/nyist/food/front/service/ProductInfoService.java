@@ -1,5 +1,7 @@
 package cn.edu.nyist.food.front.service;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,7 +20,10 @@ public interface ProductInfoService {
 	// 根据id查找
 	@Transactional(readOnly = true)
 	ProductInfo findById(int productId);
-
+	//根据类型查找
+	@Transactional(readOnly = true)
+	List<ProductInfo> findProductInfosByType(int productType);
+	
 	// 修改商品
 	@Transactional
 	ProductInfo update(ProductInfo productInfo);
