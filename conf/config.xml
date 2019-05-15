@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+<!-- 第三方短信平台云之讯相关配置 -->
+<!-- AppID -->
+<property name="appid" value="4396b1310e504e399952d6d46a198395" />
+<!-- Account Sid -->
+<property name="sid" value="b15602017433f49a512d576d1bf12325" />
+<!-- 鉴权密钥 -->
+<property name="token" value="27b8210d9f806eeccfdc80f6f3d77f9d" />
+<!-- 请求地址 -->
+<property name="rest_server" value="open.ucpaas.com" />
+<!-- 模板id -->
+<property name="templateid" value="465576" />
+
+<!-- 支付宝沙箱环境相关配置 -->
+<!-- 账号：rnehet2161@sandbox.com
+	  支付密碼：111111
+	  登陸密碼：111111 -->
+<!-- 商家APPid -->
+<property name="APPID" value="2016092700607988" />
+<!-- 私钥 -->
+<property name="RSA_PRIVATE_KEY" value="MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCcX+P20jeLu8wGXRwHEMfbbVqlCtw4gTLpcwKtaslpNQC56kW8cEGG1OL1y5iaxhCXI1F5nSisk+iIza3x95di8pY8pcD8NmgCB2hjFOzFBilzSltMy6ZSSJI2k2DFtZMoRcovhKFbYBQElB1hjAwUd3KjuGrUAPT2JUz8sTjjMQnTG/n/uSrn82QqcWgVJfrBveuTAClZtH2fVZYIbFXg9ZcdJBfZUgzELNXTMryaSEcbPq/0Jvxvi+kvFLYsHFiz83G7PCWYzzooeVqcxGcGkUF9ZIhpUc4lBpNTsUIChMKkU3jI1+H/JbNRMdyXOET4n2s+Ydp42Aa3Lz65xyPRAgMBAAECggEAey9C2s4ROb+P4rd4e8xpVF8Z2AftIYoNvD+ArXIBBiLd1pdJpj9cL0YHII/pQIukyBrndQEr6H9/4Dz+uS1NEYJ+fXopw8VsO6TwQ5VZS4AmKQ87Swzmkc1feSSySC1YppILy1EU93GBc3Xmi1CSt5C9O2HsreOvFTSfKDTH1pgorXCZG6L758u2Cj2nlyEl93eFEq/8dnRYVAFgZcm5lI1Io03O+JczVAbtOOEX3ombzDccR3muILXJVYgud4cnRROnpIdOB+hVm4lCchac1WsDi+ro/bCbJ9sU6wA1Xa6XDjh96bqe34vKK6+KOAelDOq9ZeEs633idUB5i6z7zQKBgQD6Zo2rUBhwbzbHGgglC32ug5inE7oXqVXNlKqVtk8D6e6VYbq33r7Qp4nqiJUZUy+bBj7w7N8dsx2xzn1X9I8aZFbCyZgLTfqMRu9TbJYEeSij6kVjHKNDnDIpdhocCc9e7MSLbF3XCNocO14UoO+aLavpIWqDxacjyweP406DVwKBgQCf3xMOuSr2fLm1ZXu0MzZQHgu830mkvszspP4Oe1mbBjYfdMxc7WEbt0U/wgxTcL3eKQcF5kLmBLQGHxrXcURtO8cgNVi9CfmPH4hm1/3Lq6l/5IAtS3vaybKTrS20s6PJogzJcJEHMplaYlXtGrxMI61i8KXdOYbPYTlYvroBFwKBgQDtwQBVIGkEIOUfKV2AZye/0x3XzkhM/TEGUVmja4YdDjrGRhQ3T91YWyv9sA/6Ct1R0h1jP1YeahsQ4CJtqD1Ubt9ednHSkgkKtrO5P4o11yC6es/FasSuhpmueoASDVKELEX2qD911ObcFZaf+atndmQbqOntEng/6SBWBBthYwKBgH+AHifQ34XDRSx5KiY17awJulzAS3BbRv24PHH6SCVN195QfSfjnV3IVS8bKE9ni9VhLRu0X0gpGhYDupl12Rew5Ac45HOnP+O4R0WWHu/PERhReTQmjjmYQJZsOBZ0ajzFw6Ln5pIx9YHTCSpW9zNWBNLyj6WWWoCLznuLaLazAoGBANRqsE4wrH0OpI1vfRuW8P5KKdPH9kOeW8FDaNQ1n9WwzAzDuEbjvXPnnD/q8d0Fi/pzL8Lh6IeMX2aWxnoCeuYqQDGzydqacXNhNVboqU3YZyuVQUGpbnEYAqf2x4AM3R/FQSLcwzPfBsbZqck4NYvEnWfcm0EP2s8RHigfzdKf" />
+<!-- 公钥 -->
+<property name="ALIPAY_PUBLIC_KEY" value="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnF/j9tI3i7vMBl0cBxDH221apQrcOIEy6XMCrWrJaTUAuepFvHBBhtTi9cuYmsYQlyNReZ0orJPoiM2t8feXYvKWPKXA/DZoAgdoYxTsxQYpc0pbTMumUkiSNpNgxbWTKEXKL4ShW2AUBJQdYYwMFHdyo7hq1AD09iVM/LE44zEJ0xv5/7kq5/NkKnFoFSX6wb3rkwApWbR9n1WWCGxV4PWXHSQX2VIMxCzV0zK8mkhHGz6v9Cb8b4vpLxS2LBxYs/NxuzwlmM86KHlanMRnBpFBfWSIaVHOJQaTU7FCAoTCpFN4yNfh/yWzUTHclzhE+J9rPmHaeNgGty8+uccj0QIDAQAB" />
+<!-- 异步返回URL -->
+<property name="notify_url" value="http://localhost:8080/milk/front/return" />
+<!-- 同步返回URL -->
+<property name="return_url" value="http://localhost:8080/milk/front/return" />
+<!-- 沙箱环境网关 -->
+<property name="URL" value="https://openapi.alipaydev.com/gateway.do" />
+<property name="CHARSET" value="UTF-8" />
+<property name="FORMAT" value="json" />
+<property name="log_path" value="/log" />
+<property name="SIGNTYPE" value="RSA2" />
+</config>
